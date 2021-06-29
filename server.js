@@ -67,10 +67,10 @@ app.post('/api/shorturl/', function (req,res) {
 })
 
 app.get('/api/shorturl/:shorturl', function(req,res) {
-  let shorturl =  req.params.shorturl;
-  let query = {"short_url": shorturl}
+  // let shorturl =  req.params.shorturl;
+  // let query = {"short_url": shorturl}
 
-  db.collection('urlmodels').findOne(query, function(err, result) {
+  urlModel.findOne({"short_url":req.params.shorturl}, function(err, result) {
     if(err) {
       
       res.send("error");
